@@ -1,0 +1,17 @@
+{
+    "word": ":checked",
+    "definition": "псевдокласс CSS, применяющий стили к элементам форм (checkbox, radio), которые находятся в состоянии «выбрано»",
+    "translation": "выбранный; от англ. checked — «отмеченный, проверенный»",
+    "categories": [
+        "CSS"
+    ],
+    "related": [
+        ":hover",
+        ":focus",
+        ":active"
+    ],
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/:checked",
+    "fullDescription": "Стиль для отмеченных элементов форм",
+    "letter": "C",
+    "name-file": "checked.json"
+}

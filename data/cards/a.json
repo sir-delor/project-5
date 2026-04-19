@@ -1,0 +1,10 @@
+{
+  "word": "<a>",
+  "definition": "Тег для создания гиперссылок и якорей на странице.",
+  "translation": "anchor (якорь, ссылка)",
+  "categories": ["HTML", "JavaScript"],
+  "related": "",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
+  "fullDescription": "",
+  "letter": "S"
+}

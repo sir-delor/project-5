@@ -1,0 +1,9 @@
+
+{
+  "word": "<img>",
+  "definition": "Тег для вставки изображений на веб‑страницу.",
+  "categories": ["HTML", "CSS"],
+  "translation": "image (изображение)",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
+ "fullDescription": "./data/pages/img.html"
+}

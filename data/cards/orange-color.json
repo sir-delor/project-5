@@ -1,0 +1,10 @@
+  {
+    "word": "orange",
+    "definition": "Цвет в модели RGB. В CSS определяется по имени (orange), HEX‑кодом (#FFA500) или функцией rgb(255, 165, 0).",
+    "translation": "оранжевый",
+    "categories": ["CSS", "Цвета"],
+    "related": "RGB, HEX, цвета CSS",
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/color_value",
+    "fullDescription": "",
+    "letter": "O"
+  }

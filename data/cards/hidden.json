@@ -1,0 +1,10 @@
+{
+    "word": "hidden",
+    "definition": "Атрибут в HTML, который скрывает элемент на странице. Элемент с этим атрибутом не отображается и не занимает места в макете.",
+    "translation": "скрытый",
+    "categories": ["HTML"],
+    "related": "display: none, visibility: hidden, aria-hidden",
+    "reference": "https://developer.mozilla.org/ru/docs/Web/HTML/Global_attributes/hidden",
+    "fullDescription": "",
+    "letter": "H"
+  }

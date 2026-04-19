@@ -1,0 +1,10 @@
+{
+  "word": "<strong>",
+  "definition": "Тег для обозначения высокой важности, серьёзности или срочности текста; по умолчанию отображается жирным шрифтом.",
+
+  "translation": "strong (сильный, важный)",
+  "categories": ["HTML", "CSS"],
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong",
+  "fullDescription": "",
+  "letter": "S"
+}

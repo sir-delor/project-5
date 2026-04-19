@@ -1,0 +1,10 @@
+{
+    "word": "yellow",
+    "definition": "Цвет в модели RGB. В CSS задаётся по имени (yellow), HEX‑кодом (#FFFF00) или функцией rgb(255, 255, 0).",
+    "translation": "жёлтый",
+    "categories": ["CSS", "Цвета"],
+    "related": "RGB, HEX, цвета CSS",
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/color_value",
+    "fullDescription": "",
+    "letter": "Y"
+  }

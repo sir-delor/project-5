@@ -1,0 +1,16 @@
+{
+    "word": "/* в CSS */",
+    "definition": "синтаксис для добавления комментариев в код CSS — текст внутри не обрабатывается браузером",
+    "translation": "комментарий в CSS; /* — начало, */ — конец комментария",
+    "categories": [
+        "CSS"
+    ],
+    "related": [
+        "HTML‑комментарий",
+        "JS‑комментарий"
+    ],
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/Syntax#comments",
+    "fullDescription": "Способ оставить заметку в CSS‑коде",
+    "letter": "C",
+    "name-file": "css-comment.json"
+}

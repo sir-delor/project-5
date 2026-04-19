@@ -1,0 +1,10 @@
+{
+  "word": "<footer>",
+  "definition": "HTML‑тег, определяющий нижний колонтитул (подвал) секции или всего документа.HTML-элемент для создания нижней части страницы, которая может быть в конце одной страницы или на всех страницах документа. Обычно в ней пишут, кому принадлежит сайт, добавляют ссылки на разные разделы сайта и указывают контактные данные.",
+  "translation": "footer (нижний колонтитул, подвал страницы)",
+  "categories": ["HTML"],
+  "related": "<header>, <nav>, <main>, <section>, <aside>",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer",
+  "fullDescription": "./data/pages/footer-article.html",
+  "letter": "F"
+}

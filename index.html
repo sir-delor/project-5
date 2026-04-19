@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шпаргалка: HTML и CSS</title>
+
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/code-dict.ico" />
+
+    <link rel="apple-touch-icon" href="/img/code-dict-180.png" />
+    <!-- apple -->
+  </head>
+
+  <body>
+    <header>
+      <logo>
+        <svg width="250" height="50">
+          <text
+            x="0"
+            y="40"
+            font-family="Arial"
+            font-size="35"
+            stroke="#000000"
+            stroke-width="1"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            HTML@Dict
+          </text>
+        </svg>
+      </logo>
+
+      <nav>
+        <a href="#" onclick="window.history.back()">← Назад</a> |
+        <a href="/">🏠 Главная</a>
+      </nav>
+    </header>
+
+    <h1>Шпаргалка: HTML и CSS</h1>
+
+    <div class="search-section">
+      <!-- Панель поиска -->
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Поиск по терминам..."
+        />
+        <button id="clearSearch">×</button>
+      </div>
+      <div id="terms-indicator">Загрузка терминов...</div>
+    </div>
+
+    <div class="terms-container" id="termsContainer">
+      <!-- Карточки будут загружены динамически -->
+    </div>
+
+    <!-- Модальное окно с полной информацией -->
+    <div id="termModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <footer>
+      <button popovertarget="dict-popover">Обслуживание словаря</button>
+      <div id="dict-popover" popover>
+        <h4>Обслуживание словаря</h4>
+        <p>Обновите словарные записи прямо сейчас.</p>
+        <a href="mnt-dict.html" class="popover-link">Перейти</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

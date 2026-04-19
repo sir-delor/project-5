@@ -1,0 +1,10 @@
+{
+  "word": "<main>",
+  "definition": "HTML‑элемент, который обозначает основное содержимое веб‑страницы — уникальную контентную часть, не повторяющуюся на других страницах (например, статьи, товары в каталоге).",
+  "translation": "с англ. — «основной»",
+  "categories": ["HTML"],
+  "related": ["<header>", "<footer>", "<section>"],
+  "reference": "https://developer.mozilla.org/ru/docs/Web/HTML/Element/main",
+  "fullDescription": "HTML‑тег для разметки основного содержимого страницы.",
+  "letter": "m"
+}

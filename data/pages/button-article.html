@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Словарная статья: тег &lt;button&gt; v0.0</title>
+
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <link rel="icon" href="http://frontendglossary.local/projects/project-5/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Вставка header  -->
+      <div id="header"></div>
+
+      <main>
+        <section class="term-section">
+          <h2>Определение</h2>
+          <p>
+            <strong>&lt;button&gt;</strong> — интерактивный элемент интерфейса,
+            создающий кнопку. Используется для выполнения действий при клике:
+            отправки форм, запуска скриптов, навигации и т. д. В отличие от
+            ссылок (&lt;a&gt;) предназначен для действий внутри страницы.
+          </p>
+        </section>
+
+        <section class="term-section">
+          <h2>Синтаксис</h2>
+          <div class="code-block">
+            <pre>
+&lt;button type="button" class="имя-класса" id="уникальный-id"&gt;
+  Текст кнопки
+&lt;/button&gt;</pre
+            >
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Пример использования</h2>
+          <p>Набор кнопок для интерфейса корзины покупок:</p>
+
+          <div class="example-card">
+            <button type="button">Добавить в корзину</button>
+            <button type="button" disabled>Товар в корзине</button>
+            <button type="submit">Оформить заказ</button>
+          </div>
+
+          <h3>Код примера:</h3>
+          <div class="code-block">
+            <pre>
+&lt;div class="cart-actions"&gt;
+  &lt;button type="button"&gt;Добавить в корзину&lt;/button&gt;
+  &lt;button type="button" disabled&gt;Товар в корзине&lt;/button&gt;
+  &lt;button type="submit"&gt;Оформить заказ&lt;/button&gt;
+&lt;/div&gt;</pre
+            >
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Основные атрибуты</h2>
+          <table border="1" width="100%">
+            <thead>
+              <tr>
+                <th>Атрибут</th>
+                <th>Назначение</th>
+                <th>Пример</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>type</code></td>
+                <td>
+                  Тип кнопки: <code>button</code> (обычная),
+                  <code>submit</code> (отправка формы),
+                  <code>reset</code> (сброс формы)
+                </td>
+                <td><code>type="submit"</code></td>
+              </tr>
+              <tr>
+                <td><code>disabled</code></td>
+                <td>Блокирует кнопку, делая её неактивной</td>
+                <td><code>disabled</code></td>
+              </tr>
+              <tr>
+                <td><code>name</code></td>
+                <td>Имя кнопки для передачи данных в форме</td>
+                <td><code>name="add-to-cart"</code></td>
+              </tr>
+              <tr>
+                <td><code>value</code></td>
+                <td>Значение кнопки, отправляемое на сервер</td>
+                <td><code>value="Добавить"</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="term-section">
+          <h2>Связанные термины</h2>
+          <div class="related-terms">
+            <span class="tag">Форма (&lt;form&gt;)</span>
+            <span class="tag">События JavaScript</span>
+            <span class="tag">Атрибут disabled</span>
+            <span class="tag">Семантические элементы</span>
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Примечания</h2>
+          <ul>
+            <li>
+              По умолчанию имеет встроенное оформление браузера (рамка, фон,
+              эффекты при наведении).
+            </li>
+            <li>
+              Для кастомного дизайна полностью переопределяйте стили через CSS.
+            </li>
+            <li>
+              Используйте <code>type="button"</code> для кнопок без стандартной
+              формы — это предотвращает случайную отправку.
+            </li>
+            <li>
+              Обязательно добавляйте атрибут <code>aria-label</code> для
+              доступности, если текст кнопки не очевиден.
+            </li>
+            <li>
+              В формах кнопки <code>type="submit"</code> автоматически
+              отправляют данные, если не перехвачены JavaScript.
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <button
+      type="button"
+      id="scrollTopBtn"
+      aria-label="Вернуться к началу страницы"
+      class="scroll-top-btn"
+    >
+      ↑
+    </button>
+
+    <script src="script/script.js"></script>
+
+    <script src="js/header-footer-loader.js"></script>
+  </body>
+</html>

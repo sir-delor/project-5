@@ -1,0 +1,10 @@
+  {
+    "word": "stylesheet",
+    "definition": "Таблица стилей — файл или блок кода, содержащий правила оформления элементов веб‑страницы (цвета, шрифты, отступы и т. д.). Чаще всего реализуется через CSS.",
+    "translation": "таблица стилей",
+    "categories": ["CSS", "Веб‑разработка"],
+    "related": "CSS, <link>, <style>",
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS",
+    "fullDescription": "",
+    "letter": "S"
+  }

@@ -1,0 +1,8 @@
+{
+  "word": "<div>",
+  "definition": "Универсальный блочный контейнер для группировки элементов и создания структуры страницы.",
+  "categories": ["HTML"],
+  "translation": "division (раздел, блок)",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div",
+  "fullDescription": "./data/pages/div-article.html"
+}

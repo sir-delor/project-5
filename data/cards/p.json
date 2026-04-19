@@ -1,0 +1,8 @@
+{
+  "word": "<p>",
+  "definition": "Тег для обозначения абзаца текста.",
+  "categories": ["HTML", "CSS"],
+  "translation": "paragraph (абзац)",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p",
+  "fullDescription": "<h4>Подробное описание</h4>\n<p>Используется для разделения текста на абзацы. Браузер автоматически добавляет отступы между абзацами.</p>\n<h4>Примеры использования</h4>\n<pre>&lt;p&gt;Первый абзац текста.&lt;/p&gt;\n&lt;p&gt;Второй абзац текста с &lt;strong&gt;важным&lt;/strong&gt; словом.&lt;/p&gt;</pre>\n<h4>Особенности</h4>\n<p>Имеет стандартные отступы margin: 1em 0, может содержать строчные элементы.</p>"
+}

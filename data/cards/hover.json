@@ -1,0 +1,17 @@
+{
+    "word": ":hover",
+    "definition": "псевдокласс CSS, который применяет стили к элементу при наведении на него курсора мыши",
+    "translation": "наведение; от англ. hover — «парить, зависать над чем‑то»",
+    "categories": [
+        "CSS"
+    ],
+    "related": [
+        ":focus",
+        ":active",
+        ":visited"
+    ],
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/:hover",
+    "fullDescription": "Стиль при наведении курсора на элемент",
+    "letter": "H",
+    "name-file": "hover.json"
+}

@@ -1,0 +1,11 @@
+
+{
+  "word": "RGB",
+  "definition": "Цветовая модель, в которой любой цвет формируется путём смешивания трёх основных компонентов: красного (Red), зелёного (Green) и синего (Blue) в разных пропорциях. Каждый компонент задаётся значением от 0 до 255.",
+  "translation": "RGB (Red, Green, Blue — красный, зелёный, синий)",
+  "categories": ["Веб‑дизайн", "Графика", "CSS"],
+  "related": "HEX‑цвета, HSL, цветовая палитра, rgba",
+  "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/color_value#rgb_colors",
+  "fullDescription": "",
+  "letter": "R"
+}

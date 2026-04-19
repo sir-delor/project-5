@@ -1,0 +1,11 @@
+{
+  "word": "#",
+  "definition": "Символ, который в веб‑разработке часто используется как идентификатор элемента (в CSS и JavaScript) или как якорь в ссылках — чтобы перейти к определённой части страницы.",
+  "translation": "hash (решётка, октоторп)",
+  "categories": ["HTML", "CSS", "JavaScript"],
+  "related": "id, якорь (anchor), селектор",
+  "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/ID_selectors",
+  "fullDescription": "",
+  "letter": "#"
+}
+

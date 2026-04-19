@@ -1,0 +1,16 @@
+{
+    "word": "<!-- комментарий -->",
+    "definition": "синтаксис для добавления комментариев в HTML‑код — текст внутри не отображается в браузере",
+    "translation": "HTML‑комментарий; <!-- — начало, --> — конец комментария",
+    "categories": [
+        "HTML"
+    ],
+    "related": [
+        "CSS‑комментарий",
+        "JS‑комментарий"
+    ],
+    "reference": "https://html.spec.whatwg.org/#comments",
+    "fullDescription": "Заметка в HTML‑коде, невидимая пользователю",
+    "letter": "C",
+    "name-file": "html-comment.json"
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Словарная статья: тег &lt;button&gt; v0.0</title>
+
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+        <link
+      rel="icon"
+      href="http://frontendglossary.local/projects/project-5/favicon.ico"
+      type="image/x-icon"
+    />
+    
+  </head>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+
+      <main>
+        <section class="term-section">
+          <h2>Определение</h2>
+          <p>
+            <strong>&lt;footer&gt;</strong> — HTML‑тег, определяющий нижний
+            колонтитул (подвал) секции или всего документа. Обычно содержит
+            информацию об авторских правах, ссылки на разделы сайта, контактную
+            информацию и т. д.
+          </p>
+        </section>
+
+        <section class="term-section">
+          <h2>Синтаксис</h2>
+          <div class="code-block">
+            <pre>
+&lt;footer&gt;
+  &lt;!-- Содержимое подвала --&gt;
+&lt;/footer&gt;</pre
+            >
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Пример использования</h2>
+
+          <h3>Подвал всего сайта:</h3>
+          <div class="example-card">
+            <footer>
+              <p>&copy; 6 Мой сайт. Все права защищены.</p>
+              <nav>
+                <a href="/about">О нас</a> | <a href="/contact">Контакты</a> |
+                <a href="/privacy">Политика конфиденциальности</a>
+              </nav>
+              <div class="social">
+                <a href="#">VK</a>
+                <a href="#">Telegram</a>
+              </div>
+            </footer>
+          </div>
+
+          <h3>Код примера:</h3>
+          <div class="code-block">
+            <pre>
+&lt;footer&gt;
+  &lt;p&gt;&copy; 2026 Мой сайт. Все права защищены.&lt;/p&gt;
+  &lt;nav&gt;
+    &lt;a href="/about"&gt;О нас&lt;/a&gt; |
+    &lt;a href="/contact"&gt;Контакты&lt;/a&gt; |
+    &lt;a href="/privacy"&gt;Политика конфиденциальности&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;div class="social"&gt;
+    &lt;a href="#"&gt;VK&lt;/a&gt;
+    &lt;a href="#"&gt;Telegram&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</pre
+            >
+          </div>
+
+          <h3>Подвал статьи:</h3>
+          <div class="example-card">
+            <article>
+              <h2>Заголовок статьи</h2>
+              <p>Текст статьи...</p>
+              <footer>
+                <p><small>Автор: Иван Иванов</small></p>
+                <p><small>Опубликовано: 17 апреля 2026</small></p>
+              </footer>
+            </article>
+          </div>
+
+          <h3>Код примера:</h3>
+          <div class="code-block">
+            <pre>
+&lt;article&gt;
+  &lt;h2&gt;Заголовок статьи&lt;/h2&gt;
+  &lt;p&gt;Текст статьи...&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;p&gt;&lt;small&gt;Автор: Иван Иванов&lt;/small&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;small&gt;Опубликовано: 17 апреля 2026&lt;/small&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</pre
+            >
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Основные атрибуты</h2>
+          <table border="1" width="100%">
+            <thead>
+              <tr>
+                <th>Атрибут</th>
+                <th>Назначение</th>
+                <th>Пример</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>class</code></td>
+                <td>Присваивает элементу класс CSS для стилизации</td>
+                <td><code>class="site-footer"</code></td>
+              </tr>
+              <tr>
+                <td><code>id</code></td>
+                <td>Задаёт уникальный идентификатор элемента</td>
+                <td><code>id="main-footer"</code></td>
+              </tr>
+              <tr>
+                <td><code>style</code></td>
+                <td>
+                  Встроенные стили (не рекомендуется для больших проектов)
+                </td>
+                <td><code>style="background-color: #f0f0f0;"</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="term-section">
+          <h2>Связанные термины</h2>
+          <div class="related-terms">
+            <span class="tag">&lt;header&gt;</span>
+            <span class="tag">&lt;nav&gt;</span>
+            <span class="tag">&lt;main&gt;</span>
+            <span class="tag">&lt;section&gt;</span>
+            <span class="tag">&lt;article&gt;</span>
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Примечания</h2>
+          <ul>
+            <li>
+              &lt;footer&gt; — семантический тег HTML5, логически обозначает
+              «завершающую часть».
+            </li>
+            <li>В документе может быть несколько тегов &lt;footer&gt;.</li>
+            <li>
+              Не обязательно должен находиться в самом низу разметки — его
+              положение определяется логикой структуры документа.
+            </li>
+            <li>
+              По умолчанию браузеры не применяют к &lt;footer&gt; особых стилей.
+            </li>
+            <li>
+              Программы экранного чтения распознают &lt;footer&gt; и могут
+              предоставлять пользователям быстрый доступ к нему.
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <button
+      type="button"
+      id="scrollTopBtn"
+      aria-label="Вернуться к началу страницы"
+      class="scroll-top-btn"
+    >
+      ↑
+    </button>
+
+    <script src="script/script.js"></script>
+
+    <script src="js/header-footer-loader.js"></script>
+  </body>
+</html>

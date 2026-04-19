@@ -1,0 +1,17 @@
+{
+    "word": ":focus",
+    "definition": "псевдокласс CSS, задающий стили для элемента, который получил фокус ввода (например, при клике или переходе с клавиатуры)",
+    "translation": "фокус; от англ. focus — «сосредоточение, фокус»",
+    "categories": [
+        "CSS"
+    ],
+    "related": [
+        ":hover",
+        ":active",
+        ":checked"
+    ],
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/:focus",
+    "fullDescription": "Стиль элемента при получении фокуса ввода",
+    "letter": "F",
+    "name-file": "focus.json"
+}

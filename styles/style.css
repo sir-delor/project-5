@@ -1,0 +1,262 @@
+html {
+  font-size: 17px;
+}
+
+body {
+  display: grid;
+  margin: 0;
+  place-items: center;
+  min-height: 100vh;
+  align-content: start;
+  justify-items: center;
+}
+
+header {
+  max-width: 1240px;
+  display: flex;
+  gap: 50vw;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+h1 {
+  margin: 2rem 0;
+  font-size: 3rem;
+      color: #007bff;
+}
+.terms-container {
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.term-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.term-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.term-card h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.2em;
+}
+
+.definition {
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.term-info {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+
+}
+
+.category {
+  background: #e3f2fd;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  color: #1976d2;
+      word-break: break-all;
+}
+
+.translation {
+  margin: 8px 0;
+  color: #444;
+  font-style: italic;
+}
+
+.doc-link {
+  display: inline-block;
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.doc-link:hover {
+  text-decoration: underline;
+}
+
+/* Стили модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  height: 80%;
+  display: flex;
+  background-color: white;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 80vw;
+  max-width: 800px;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#modalContent {
+  display: flex;
+  gap: 1rem;
+}
+
+.no-info-message {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.1rem;
+}
+
+.trusted-sources {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  margin: 2rem;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #999;
+}
+
+/* Индикатор загрузки */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Сообщение об ошибке */
+.error-message {
+  text-align: center;
+  padding: 40px;
+  background: #ffeaea;
+  border-radius: 8px;
+  color: #d32f2f;
+  margin: 20px;
+}
+
+.error-message h3 {
+  margin-top: 0;
+  color: #c2185b;
+}
+
+/* Кнопка повтора */
+.retry-btn {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.retry-btn:hover {
+  background: #0d47a1;
+}
+
+/* Панель поиска */
+.search-section {
+  width: 70vw;
+  display: grid;
+  justify-items: center;
+}
+
+.search-container {
+  display: flex;
+  width: 80%;
+  margin: 20px auto;
+  position: relative;
+  justify-items: center;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 24px 0 0 24px;
+  font-size: 16px;
+  outline: none;
+}
+
+#searchInput:focus {
+  border-color: #1976d2;
+}
+
+#clearSearch {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 0 24px 24px 0;
+  width: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #999;
+}
+
+#clearSearch:hover {
+  background: #e0e0e0;
+  color: #666;
+}
+
+/* Стили для результатов поиска */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
+
+[popover] {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+::backdrop {
+  backdrop-filter: blur(3px);
+}
+.popover-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #17a2b8;
+  color: white;
+  text-decoration: none;
+}
+

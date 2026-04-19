@@ -1,0 +1,10 @@
+{
+  "word": "<section>",
+  "definition": "HTML‑элемент, который группирует связанный контент и обозначает тематический раздел страницы",
+  "translation": "секция, раздел (в контексте структуры веб‑страницы)",
+  "categories": ["HTML"],
+  "related": ["<div>", "<article>", "<header>"],
+  "reference": "https://developer.mozilla.org/en‑US/docs/Web/HTML/Element/section",
+  "fullDescription": "теговый элемент HTML для выделения логически обособленного раздела документа",
+  "letter": "s"
+}

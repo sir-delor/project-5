@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Словарная статья: тег &lt;button&gt; v0.0</title>
+
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+        <link
+      rel="icon"
+      href="http://frontendglossary.local/projects/project-5/favicon.ico"
+      type="image/x-icon"
+    />
+    
+  </head>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+
+      <main>
+        <section class="term-section">
+          <h2>Определение</h2>
+          <p>
+            <strong><code>text-align</code></strong> — CSS‑свойство,
+            определяющее горизонтальное выравнивание текста внутри элемента.
+            Применяется к блочным контейнерам (<code>&lt;div&gt;</code>,
+            <code>&lt;p&gt;</code>, заголовкам и т. д.) и влияет на все строчные
+            элементы внутри них.
+          </p>
+        </section>
+
+        <!-- Секция с синтаксисом -->
+        <section class="term-section">
+          <h2>Синтаксис</h2>
+          <div class="code-block">
+            <pre>
+text-align: left | right | center | justify | start | end;
+</pre
+            >
+          </div>
+        </section>
+
+        <!-- Секция с примером использования -->
+        <section class="term-section">
+          <h2>Пример использования</h2>
+          <p>Разметка с разными вариантами выравнивания текста:</p>
+
+          <div class="examples">
+            <div class="example-box">
+              <p class="example-text left-align">
+                <strong>По левому краю</strong><br />
+                Текст выровнен по левому краю — стандартное значение.
+              </p>
+            </div>
+
+            <div class="example-box">
+              <p class="example-text center-align">
+                <strong>По центру</strong><br />
+                Текст центрирован относительно контейнера.
+              </p>
+            </div>
+
+            <div class="example-box">
+              <p class="example-text right-align">
+                <strong>По правому краю</strong><br />
+                Текст выровнен по правому краю контейнера.
+              </p>
+            </div>
+          </div>
+
+          <h3>Код примера:</h3>
+          <div class="code-block">
+            <pre>
+/* Стили для демонстрации */
+.examples {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.example-box {
+    width: 30%;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* HTML разметка */
+&lt;div class="examples"&gt;
+    &lt;div class="example-box left-align"&gt;
+        &lt;p class="example-text"&gt;Текст выровнен по левому краю&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="example-box center-align"&gt;
+        &lt;p class="example-text"&gt;Текст центрирован&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="example-box right-align"&gt;
+        &lt;p class="example-text"&gt;Текст выровнен по правому краю&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </pre
+            >
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Основные значения</h2>
+          <table border="1" width="100%">
+            <thead>
+              <tr>
+                <th>Значение</th>
+                <th>Описание</th>
+                <th>Пример</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>left</code></td>
+                <td>
+                  Выравнивание по левому краю (значение по умолчанию для
+                  LTR‑языков)
+                </td>
+                <td><code>text-align: left;</code></td>
+              </tr>
+              <tr>
+                <td><code>right</code></td>
+                <td>Выравнивание по правому краю</td>
+                <td><code>text-align: right;</code></td>
+              </tr>
+              <tr>
+                <td><code>center</code></td>
+                <td>Центрирование текста относительно контейнера</td>
+                <td><code>text-align: center;</code></td>
+              </tr>
+              <tr>
+                <td><code>justify</code></td>
+                <td>
+                  Растягивает строки так, чтобы они занимали всю ширину
+                  контейнера (как в газетах)
+                </td>
+                <td><code>text-align: justify;</code></td>
+              </tr>
+              <tr>
+                <td><code>start</code></td>
+                <td>
+                  Выравнивание по началу текста (зависит от направления письма:
+                  left для LTR, right для RTL)
+                </td>
+                <td><code>text-align: start;</code></td>
+              </tr>
+              <tr>
+                <td><code>end</code></td>
+                <td>Выравнивание по концу текста (противоположно start)</td>
+                <td><code>text-align: end;</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="term-section">
+          <h2>Связанные термины</h2>
+          <div class="related-terms">
+            <span class="tag">CSS Box Model</span>
+            <span class="tag"><code>vertical-align</code></span>
+            <span class="tag">Flexbox (<code>justify-content</code>)</span>
+            <span class="tag">Grid Layout</span>
+            <span class="tag">Направление текста (<code>direction</code>)</span>
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Примечания</h2>
+          <ul>
+            <li>
+              Свойство <code>text-align</code> применяется только к блочным
+              элементам. Для выравнивания строчных элементов
+              (<code>&lt;span&gt;</code>) нужно обернуть их в блок.
+            </li>
+            <li>
+              Значение <code>justify</code> может создавать большие пробелы
+              между словами — используйте осторожно.
+            </li>
+            <li>
+              В RTL‑языках (<code>direction: rtl;</code>) значения
+              <code>start</code>/<code>end</code> меняются местами относительно
+              <code>left</code>/<code>right</code>.
+            </li>
+            <li>
+              Для вертикального выравнивания используйте
+              <code>vertical-align</code> (для таблиц и inline‑элементов) или
+              Flexbox/Grid.
+            </li>
+            <li>
+              При использовании <code>text-align: center;</code> для
+              центрирования блока лучше применять <code>margin: auto;</code> или
+              Flexbox.
+            </li>
+            <li>
+              Браузеры поддерживают значения <code>start</code> и
+              <code>end</code> с учётом спецификации CSS Text Level 3.
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <button
+      type="button"
+      id="scrollTopBtn"
+      aria-label="Вернуться к началу страницы"
+      class="scroll-top-btn"
+    >
+      ↑
+    </button>
+
+    <script src="script/script.js"></script>
+
+    <script src="js/header-footer-loader.js"></script>
+  </body>
+</html>

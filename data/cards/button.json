@@ -1,0 +1,8 @@
+{
+  "word": "<button>",
+  "definition": "Тег для создания интерактивных кнопок на странице.",
+  "categories": ["HTML", "CSS", "JavaScript"],
+  "translation": "button (кнопка)",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button",
+   "fullDescription": "data/pages/button-article.html"
+}

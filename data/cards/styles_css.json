@@ -1,0 +1,10 @@
+  {
+    "word": "styles.css",
+    "definition": "Файл с расширением .css, содержащий стили для веб‑страницы. Подключается к HTML через тег <link> и задаёт визуальное оформление элементов.",
+    "translation": "файл стилей CSS",
+    "categories": ["CSS", "Файлы"],
+    "related": ".css, <link rel=\"stylesheet\">, внешний стиль",
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/Howto/External_Stylesheets",
+    "fullDescription": "",
+    "letter": "S"
+  }

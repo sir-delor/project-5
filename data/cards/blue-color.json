@@ -1,0 +1,10 @@
+ {
+    "word": "blue",
+    "definition": "Цвет в модели RGB. В CSS указывается по имени (blue), HEX‑кодом (#0000FF) или функцией rgb(0, 0, 255).",
+    "translation": "синий",
+    "categories": ["CSS", "Цвета"],
+    "related": "RGB, HEX, цвета CSS",
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/color_value",
+    "fullDescription": "",
+    "letter": "B"
+  }

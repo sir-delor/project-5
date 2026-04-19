@@ -1,0 +1,8 @@
+{
+  "word": "<button>",
+  "definition": "Тег для создания интерактивных кнопок на странице.",
+  "categories": ["HTML", "CSS", "JavaScript"],
+  "translation": "button (кнопка)",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button",
+  "fullDescription": "<h4>Подробное описание</h4>\n<p>Создаёт кликабельную кнопку, которая может выполнять действия или отправлять формы.</p>\n<h4>Примеры использования</h4>\n<pre>&lt;button type=\"button\"&gt;Обычная кнопка&lt;/button&gt;\n&lt;button type=\"submit\"&gt;Отправить форму&lt;/button&gt;</pre>\n<h4>Типы кнопок</h4>\n<ul>\n  <li>button — обычная кнопка</li>\n  <li>submit — отправка формы</li>\n  <li>reset — сброс формы</li>\n</ul>\n<h4>Доступность</h4>\n<p>Кнопки автоматически доступны для скринридеров, рекомендуется добавлять атрибут aria-label для сложных случаев.</p>"
+}

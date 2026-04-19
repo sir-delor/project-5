@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Словарная статья: тег &lt;button&gt; v0.0</title>
+
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <link
+      rel="icon"
+      href="http://frontendglossary.local/projects/project-5/favicon.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+
+      <main>
+        <section class="term-section">
+          <h2>Определение</h2>
+          <p>
+            <strong>&lt;div&gt;</strong> — блочный элемент‑контейнер общего
+            назначения, используемый для группировки других элементов и
+            применения к ним стилей CSS. Не несёт семантической нагрузки —
+            предназначен исключительно для структурирования разметки.
+          </p>
+        </section>
+
+        <section class="term-section">
+          <h2>Синтаксис</h2>
+          <div class="code-block">
+            <pre>
+&lt;div class="имя-класса" id="уникальный-id"&gt;
+  &lt;!-- Содержимое --&gt;
+&lt;/div&gt;</pre
+            >
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Пример использования</h2>
+          <p>Карточка товара, созданная с помощью &lt;div&gt;:</p>
+
+          <div class="example-card">
+            <h3>Смартфон XYZ Pro</h3>
+            <p>Современный смартфон с тройной камерой и мощным процессором.</p>
+            <div class="price">Цена: 49 999 руб.</div>
+            <button>В корзину</button>
+          </div>
+
+          <h3>Код примера:</h3>
+          <div class="code-block">
+            <pre>
+&lt;div class="example-card"&gt;
+  &lt;h3&gt;Смартфон XYZ Pro&lt;/h3&gt;
+  &lt;p&gt;Современный смартфон с тройной камерой...&lt;/p&gt;
+  &lt;div class="price"&gt;Цена: 49 999 руб.&lt;/div&gt;
+  &lt;button&gt;В корзину&lt;/button&gt;
+&lt;/div&gt;</pre
+            >
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Основные атрибуты</h2>
+          <table border="1" width="100%">
+            <thead>
+              <tr>
+                <th>Атрибут</th>
+                <th>Назначение</th>
+                <th>Пример</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>class</code></td>
+                <td>Присваивает элемент классу CSS для стилизации</td>
+                <td><code>class="card"</code></td>
+              </tr>
+              <tr>
+                <td><code>id</code></td>
+                <td>Задаёт уникальный идентификатор элемента</td>
+                <td><code>id="main-content"</code></td>
+              </tr>
+              <tr>
+                <td><code>style</code></td>
+                <td>
+                  Встроенные стили (не рекомендуется для больших проектов)
+                </td>
+                <td><code>style="color: red;"</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="term-section">
+          <h2>Связанные термины</h2>
+          <div class="related-terms">
+            <span class="tag">CSS‑классы</span>
+            <span class="tag">Селектор по ID</span>
+            <span class="tag">Блочная модель</span>
+            <span class="tag">Flexbox</span>
+          </div>
+        </section>
+
+        <section class="term-section">
+          <h2>Примечания</h2>
+          <ul>
+            <li>
+              &lt;div&gt; по умолчанию занимает всю доступную ширину родителя
+              (<code>display: block</code>).
+            </li>
+            <li>
+              В современных проектах рекомендуется использовать семантические
+              теги вместо &lt;div&gt;, если это соответствует смыслу контента.
+            </li>
+            <li>
+              Часто используется как контейнер для Flexbox или Grid‑макетов.
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <button
+      type="button"
+      id="scrollTopBtn"
+      aria-label="Вернуться к началу страницы"
+      class="scroll-top-btn"
+    >
+      ↑
+    </button>
+
+    <script src="script/script.js"></script>
+
+    <script src="js/header-footer-loader.js"></script>
+  </body>
+</html>

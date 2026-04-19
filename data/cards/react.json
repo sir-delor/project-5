@@ -1,0 +1,18 @@
+{
+    "word": "React",
+    "definition": "JavaScript‑библиотека для создания пользовательских интерфейсов, особенно интерактивных одностраничных приложений",
+    "translation": "React (не переводится; от англ. react — «реагировать»)",
+    "categories": [
+        "JavaScript",
+        "фронтенд‑фреймворки"
+    ],
+    "related": [
+        "компонент",
+        "виртуальный DOM",
+        "JSX"
+    ],
+    "reference": "https://react.dev/",
+    "fullDescription": "Библиотека для построения интерактивных UI на JavaScript",
+    "letter": "R",
+    "name-file": "react.json"
+}

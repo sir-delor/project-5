@@ -1,0 +1,10 @@
+{
+  "word": "text-align",
+  "definition": "CSS‑свойство, определяющее горизонтальное выравнивание текста внутри элемента.",
+  "translation": "выравнивание текста",
+  "categories": ["CSS"],
+  "related": "text-align-last, vertical-align, margin: auto, justify-content, text-justify",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/CSS/text-align",
+  "fullDescription": "data/pages/text-align-article.html",
+  "letter": "T"
+}

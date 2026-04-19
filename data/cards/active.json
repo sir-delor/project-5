@@ -1,0 +1,17 @@
+{
+    "word": ":active",
+    "definition": "псевдокласс CSS, применяющий стили к элементу в момент его активации (например, при нажатии и удерживании кнопки мыши)",
+    "translation": "активный; от англ. active — «активный, действующий»",
+    "categories": [
+        "CSS"
+    ],
+    "related": [
+        ":hover",
+        ":focus",
+        ":visited"
+    ],
+    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/:active",
+    "fullDescription": "Задаёт стиль элемента при его активации пользователем",
+    "letter": "A",
+    "name-file": "active.json"
+}

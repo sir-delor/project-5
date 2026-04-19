@@ -1,0 +1,10 @@
+  {
+    "word": "data-href",
+    "definition": "Пользовательский data‑атрибут в HTML. Позволяет хранить дополнительные данные в элементе, не влияя на его отображение. В данном случае может содержать URL‑адрес (аналог атрибута href).",
+    "translation": "data‑атрибут с URL",
+    "categories": ["HTML", "JavaScript"],
+    "related": "data‑атрибуты, dataset, href",
+    "reference": "https://developer.mozilla.org/ru/docs/Learn/HTML/Howto/Use_data_attributes",
+    "fullDescription": "",
+    "letter": "D"
+  }

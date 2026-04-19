@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Словарная статья: тег &lt;button&gt; v0.0</title>
+
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+        <link
+      rel="icon"
+      href="http://frontendglossary.local/projects/project-5/favicon.ico"
+      type="image/x-icon"
+    />
+    
+  </head>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+
+<main>
+ <h1>Словарная статья: тег &lt;img&gt; v0.0</h1>
+      <p>
+        Словарная статья в онлайн‑словаре по HTML и CSS
+      </p>
+    </header>
+
+    <main>
+      <section class="term-section">
+        <h2>Определение</h2>
+        <p>
+          <strong>&lt;img&gt;</strong> — элемент для вставки изображений в веб‑страницу. Отображает графическое содержимое по ссылке на файл. Является пустым (не имеет закрывающего тега) и относится к встроенным (inline) элементам.
+        </p>
+      </section>
+
+      <section class="term-section">
+        <h2>Синтаксис</h2>
+        <div class="code-block">
+          <pre>&lt;img src="путь/к/изображению.jpg" alt="описание изображения" width="100" height="150"&gt;</pre>
+        </div>
+      </section>
+
+      <section class="term-section">
+        <h2>Пример использования</h2>
+        <p>Изображение товара в карточке:</p>
+
+        <div class="example-card">
+          <h3>Смартфон XYZ Pro</h3>
+          <img src="images/smartphone-xyz-pro.svg" alt="Смартфон XYZ Pro, вид спереди" width="100" height="150">
+          <p>Современный смартфон с тройной камерой и мощным процессором.</p>
+        </div>
+
+        <h3>Код примера:</h3>
+        <div class="code-block">
+          <pre>&lt;div class="product-card"&gt;
+  &lt;h3&gt;Смартфон XYZ Pro&lt;/h3&gt;
+  &lt;img src="images/smartphone-xyz-pro.jpg"
+       alt="Смартфон XYZ Pro, вид спереди"
+       width="300"
+       height="400"&gt;
+  &lt;p&gt;Современный смартфон с тройной камерой...&lt;/p&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <section class="term-section">
+        <h2>Основные атрибуты</h2>
+        <table border="1" width="100%">
+          <thead>
+            <tr>
+              <th>Атрибут</th>
+              <th>Назначение</th>
+              <th>Пример</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>src</code></td>
+              <td>Обязательный атрибут. Указывает путь к изображению (URL или локальный путь)</td>
+              <td><code>src="images/photo.jpg"</code></td>
+            </tr>
+            <tr>
+              <td><code>alt</code></td>
+              <td>Текстовое описание изображения. Критично для доступности и SEO</td>
+              <td><code>alt="Логотип компании"</code></td>
+            </tr>
+            <tr>
+              <td><code>width</code></td>
+              <td>Ширина изображения в пикселях или процентах</td>
+              <td><code>width="500"</code></td>
+            </tr>
+            <tr>
+              <td><code>height</code></td>
+              <td>Высота изображения в пикселях или процентах</td>
+              <td><code>height="300"</code></td>
+            </tr>
+            <tr>
+              <td><code>loading</code></td>
+              <td>Управляет загрузкой: <code>lazy</code> (отложенная загрузка) или <code>eager</code> (обычная)</td>
+              <td><code>loading="lazy"</code></td>
+            </tr>
+            <tr>
+              <td><code>srcset</code></td>
+              <td>Указывает несколько версий изображения для разных разрешений экрана</td>
+              <td><code>srcset="small.jpg 480w, large.jpg 1080w"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="term-section">
+        <h2>Связанные термины</h2>
+        <div class="related-terms">
+          <span class="tag">Атрибут alt</span>
+          <span class="tag">Адаптивные изображения</span>
+          <span class="tag">Форматы изображений (JPEG, PNG, WebP)</span>
+          <span class="tag">&lt;picture&gt;</span>
+          <span class="tag">Доступность (a11y)</span>
+        </div>
+      </section>
+
+      <section class="term-section">
+        <h2>Примечания</h2>
+        <ul>
+          <li>
+            Атрибут <code>alt</code> обязателен: без него страница не пройдёт проверку на доступность.
+          </li>
+          <li>
+            Для фоновых изображений используйте CSS (<code>background-image</code>), а не &lt;img&gt;.
+          </li>
+          <li>
+            Используйте <code>loading="lazy"</code> для изображений ниже первого экрана — это ускоряет загрузку страницы.
+          </li>
+          <li>
+            Всегда указывайте <code>width</code> и <code>height</code>, чтобы избежать «прыжков» контента при загрузке.
+          </li>
+          <li>
+            Современные форматы (WebP, AVIF) позволяют уменьшить размер файла без потери качества.
+          </li>
+          <li>
+            Тег &lt;img&gt; не поддерживает содержимое между открывающим и закрывающим тегом — это самозакрывающийся элемент.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <button
+      type="button"
+      id="scrollTopBtn"
+      aria-label="Вернуться к началу страницы"
+      class="scroll-top-btn"
+    >
+      ↑
+    </button>
+
+    <script src="script/script.js"></script>
+
+    <script src="js/header-footer-loader.js"></script>
+  </body>
+</html>

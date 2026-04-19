@@ -1,0 +1,18 @@
+{
+    "word": "variable",
+    "definition": "именованная область памяти, в которой хранится какое‑либо значение",
+    "translation": "переменная; от англ. variable — «изменяемый, переменный»",
+    "categories": [
+        "JavaScript",
+        "программирование"
+    ],
+    "related": [
+        "тип данных",
+        "присваивание",
+        "область видимости"
+    ],
+    "reference": "https://developer.mozilla.org/ru/docs/Learn/JavaScript/First_steps/Variables",
+    "fullDescription": "Хранит данные, значение может меняться в процессе работы программы",
+    "letter": "V",
+    "name-file": "variable.json"
+}

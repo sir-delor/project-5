@@ -1,0 +1,10 @@
+{
+  "word": "<i>",
+  "definition": "Тег для стилистического выделения текста без придания ему особой важности; по умолчанию отображается курсивом.",
+  "translation": "italic (курсив)",
+  "categories": ["HTML"],
+  "related": "<em>, <span>",
+  "reference": "Применяется для оформления терминов, названий произведений, транслитераций, слов на иностранном языке и т. д.",
+  "mozillaLink": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i",
+  "letter": "I"
+}

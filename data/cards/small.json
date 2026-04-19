@@ -1,0 +1,9 @@
+{
+  "word": "<small>",
+  "definition": "Тег, уменьшающий размер шрифта текста внутри него на одну условную единицу относительно окружающего текста.",
+  "translation": "small (маленький, мелкий)",
+  "categories": ["HTML", "CSS", "JavaScript"],
+  "related": "<font size>, CSS font-size",
+  "reference": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small",
+  "letter": "S"
+}
