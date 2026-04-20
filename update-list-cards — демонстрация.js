@@ -67,27 +67,24 @@ function updateCardCount(count) {
     }
 }
 
-//  Получение списка файлов из папки data/cards
-//Вариант . Использование статического JSON‑файла со списком
-//Без запуска PHP скриптов- вручную или через серверный скрипт генерировать файл file-list.json при обновлении папки:
+// Получение списка файлов из папки data/cards
 async function getCardFiles() {
     try {
-        const response = await fetch('data/cards/file-list.json', {
+        const response = await fetch('data/cards/', {
             headers: {
                 'Cache-Control': 'no-cache, no-store, must-revalidate'
             }
         });
         if (!response.ok) throw new Error('Не удалось получить список файлов');
 
-        const cardFiles = await response.json();
-        return cardFiles;
+        // В реальном сервере это может быть JSON или HTML-список
+        // Для демонстрации используем фиксированный массив
+        return ['variable.json', 'function.json', 'array.json', 'new-term.json'];
     } catch (error) {
-        logAction('Ошибка', 'Загрузка списка файлов: ' + error.message);
+        logAction('Ошибка', 'Получение списка файлов: ' + error.message);
         throw error;
     }
 }
-
-
 
 // Загрузка текущего списка из list-files.json
 async function loadCurrentList() {
