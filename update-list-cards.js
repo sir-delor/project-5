@@ -119,26 +119,27 @@ function findNewFiles(cardFiles, currentList) {
 }
 
 // Обновление списка в файле list-files.json
-async function saveUpdatedList(updatedList) {
+// Функция для обновления file-list.json на сервере
+async function updateFileListOnServer() {
     try {
-        const response = await fetch('data/cards/list-files.json', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache'
-            },
-            body: JSON.stringify(updatedList, null, 2)
+        const response = await fetch('update-file-list.php', {
+            method: 'GET' // Используем GET, так как скрипт не требует передачи данных
         });
 
-        if (!response.ok) throw new Error('Не удалось сохранить обновлённый список');
 
-        logAction('Обновление', 'Список файлов успешно сохранён на сервере');
-        return true;
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        logAction('Обновление', `Список файлов обновлён: ${result.count} файлов`);
+        return result;
     } catch (error) {
-        logAction('Ошибка', 'Сохранение обновлённого списка: ' + error.message);
+        logAction('Ошибка', 'Обновление file-list.json: ' + error.message);
         throw error;
     }
 }
+
 
 // Отображение списка файлов
 function displayFileList(fileList) {
