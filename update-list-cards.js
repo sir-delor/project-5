@@ -100,6 +100,33 @@ function findNewFiles(cardFiles, currentList) {
     return newFiles;
 }
 
+// Функция сохранения обновлённого списка в list-files.json
+async function saveUpdatedList(updatedList) {
+    try {
+        const response = await fetch('data/cards/list-files.json', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache'
+            },
+            body: JSON.stringify(updatedList, null, 2)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: Не удалось сохранить список`);
+        }
+
+        logAction('Сохранение', `Список сохранён: ${updatedList.length} файлов`);
+        return true;
+    } catch (error) {
+        logAction('Ошибка', 'Сохранение списка: ' + error.message);
+        throw error;
+    }
+}
+
+
+
+
 // Функция для обновления file-list.json на сервере
 async function updateFileListOnServer() {
     try {
