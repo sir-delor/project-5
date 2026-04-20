@@ -26,7 +26,7 @@ function decodeHtml(encodedHtml) {
 async function discoverFilesInFolder(folderPath = 'data') {
   try {
     // Попытка получить список файлов через специальный endpoint
-    const response = await fetch(`${folderPath}list-files.json`);
+    const response = await fetch(`${folderPath}/list-files.json`);
 
     if (response.ok) {
       const fileList = await response.json();
