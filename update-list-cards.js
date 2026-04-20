@@ -4,6 +4,8 @@ let newFiles = [];
 // Локальное кэширование последней проверки
 const CACHE_KEY = 'termCatalogLastCheck';
 
+
+//  Вспомогательные функции (cacheLastCheck, getCachedCheck, logAction).
 function cacheLastCheck(data) {
     localStorage.setItem(CACHE_KEY, JSON.stringify({
         timestamp: new Date().toISOString(),
@@ -20,53 +22,10 @@ function getCachedCheck() {
 function logAction(action, details = '') {
     console.log(`[${new Date().toLocaleTimeString()}] ${action}: ${details}`);
 }
+// Конец
+ //  Вспомогательные функции
 
-// Инициализация приложения после загрузки DOM
-document.addEventListener('DOMContentLoaded', initApp);
-
-function initApp() {
-    // Получаем элементы только после загрузки DOM
-    const statusDiv = document.getElementById('status');
-    const updateBtn = document.getElementById('updateBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const cardCount = document.getElementById('cardCount');
-
-    if (!statusDiv || !cardCount) {
-        console.error('Критические элементы не найдены в DOM');
-        return;
-    }
-
-    // Сбрасываем состояние при загрузке страницы
-    newFiles = [];
-    updateBtn.disabled = true;
-    downloadBtn.disabled = false;
-
-    // Проверяем кэш при загрузке
-    const cached = getCachedCheck();
-    if (cached) {
-        updateStatus(`Последняя проверка: ${cached.timestamp}`, 'success');
-        currentFileList = cached.data.currentList;
-        displayFileList(currentFileList);
-        updateCardCount(currentFileList.length);
-    } else {
-        cardCount.textContent = 'В библиотеке: данные загружаются...';
-        updateStatus('Нажмите кнопку «Проверить обновления».', 'success');
-    }
-
-    // Устанавливаем обработчики событий
-    document.getElementById('checkBtn').addEventListener('click', checkUpdates);
-    document.getElementById('updateBtn').addEventListener('click', updateLibrary);
-    document.getElementById('downloadBtn').addEventListener('click', downloadFileList);
-}
-
-// Обновление количества карточек
-function updateCardCount(count) {
-    const cardCount = document.getElementById('cardCount');
-    if (cardCount) {
-        cardCount.textContent = `В библиотеке: ${count} карточек`;
-    }
-}
-
+//  Функции работы с файлами:
 // Получение списка файлов из папки data/cards
 async function getCardFiles() {
     try {
@@ -88,16 +47,6 @@ async function getCardFiles() {
 // Загрузка текущего списка из list-files.json
 async function loadCurrentList() {
     return getCardFiles(); // ИЗМЕНЕНО: теперь используем одну функцию для обоих случаев
-}
-
-// Сравнение списков и поиск новых файлов
-function findNewFiles(cardFiles, currentList) {
-    console.log('Актуальные файлы на сервере:', cardFiles);
-    console.log('Текущий список в библиотеке:', currentList);
-
-    const newFiles = cardFiles.filter(file => !currentList.includes(file));
-    console.log('Найденные новые файлы:', newFiles);
-    return newFiles;
 }
 
 // Функция сохранения обновлённого списка в list-files.json
@@ -124,9 +73,6 @@ async function saveUpdatedList(updatedList) {
     }
 }
 
-
-
-
 // Функция для обновления file-list.json на сервере
 async function updateFileListOnServer() {
     try {
@@ -147,6 +93,7 @@ async function updateFileListOnServer() {
     }
 }
 
+// Функции отображения:
 // Отображение списка файлов
 function displayFileList(fileList) {
     const listPreview = document.getElementById('listPreview');
@@ -182,6 +129,25 @@ function updateStatus(message, statusClass = '') {
     statusDiv.className = 'status ' + statusClass;
 }
 
+// Обновление количества карточек
+function updateCardCount(count) {
+    const cardCount = document.getElementById('cardCount');
+    if (cardCount) {
+        cardCount.textContent = `В библиотеке: ${count} карточек`;
+    }
+}
+
+// Функции логики
+
+// Сравнение списков и поиск новых файлов
+function findNewFiles(cardFiles, currentList) {
+    console.log('Актуальные файлы на сервере:', cardFiles);
+    console.log('Текущий список в библиотеке:', currentList);
+
+    const newFiles = cardFiles.filter(file => !currentList.includes(file));
+    console.log('Найденные новые файлы:', newFiles);
+    return newFiles;
+}
 // Проверка обновлений
 async function checkUpdates() {
     const statusDiv = document.getElementById('status');
@@ -265,4 +231,48 @@ async function updateLibrary() {
         console.error('Ошибка обновления:', error);
         updateBtn.disabled = false;
     }
+}
+
+
+
+
+
+
+// Инициализация приложения после загрузки DOM
+document.addEventListener('DOMContentLoaded', initApp);
+
+function initApp() {
+    // Получаем элементы только после загрузки DOM
+    const statusDiv = document.getElementById('status');
+    const updateBtn = document.getElementById('updateBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const cardCount = document.getElementById('cardCount');
+
+    if (!statusDiv || !cardCount) {
+        console.error('Критические элементы не найдены в DOM');
+        return;
+    }
+
+
+    // Сбрасываем состояние при загрузке страницы
+    newFiles = [];
+    updateBtn.disabled = true;
+    downloadBtn.disabled = false;
+
+    // Проверяем кэш при загрузке
+    const cached = getCachedCheck();
+    if (cached) {
+        updateStatus(`Последняя проверка: ${cached.timestamp}`, 'success');
+        currentFileList = cached.data.currentList;
+        displayFileList(currentFileList);
+        updateCardCount(currentFileList.length);
+    } else {
+        cardCount.textContent = 'В библиотеке: данные загружаются...';
+        updateStatus('Нажмите кнопку «Проверить обновления».', 'success');
+    }
+
+    // Устанавливаем обработчики событий
+    document.getElementById('checkBtn').addEventListener('click', checkUpdates);
+    document.getElementById('updateBtn').addEventListener('click', updateLibrary);
+    document.getElementById('downloadBtn').addEventListener('click', downloadFileList);
 }
