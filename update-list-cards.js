@@ -174,30 +174,52 @@ function downloadFileList() {
       "Список файлов сохранён как list-files-updated.json"
     )
 }
+// Функция инициализации приложения
 function initApp() {
-  var t = document.getElementById("status"),
-    e = document.getElementById("updateBtn"),
-    n = document.getElementById("downloadBtn"),
-    a = document.getElementById("cardCount")
-  t && a
-    ? ((newFiles = []),
-      (e.disabled = !0),
-      (n.disabled = !1),
-      (t = getCachedCheck())
-        ? (updateStatus("Последняя проверка: " + t.timestamp, "success"),
-          displayFileList((currentFileList = t.data.currentList)),
-          updateCardCount(currentFileList.length))
-        : ((a.textContent = "В библиотеке: данные загружаются..."),
-          updateStatus("Нажмите кнопку «Проверить обновления».", "success")),
-      document
-        .getElementById("checkBtn")
-        .addEventListener("click", checkUpdates),
-      document
-        .getElementById("updateBtn")
-        .addEventListener("click", updateLibrary),
-      document
-        .getElementById("downloadBtn")
-        .addEventListener("click", downloadFileList))
-    : console.error("Критические элементы не найдены в DOM")
+    // Получаем элементы DOM
+    const statusDiv = document.getElementById('status');
+    const updateBtn = document.getElementById('updateBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const cardCount = document.getElementById('cardCount');
+    const checkBtn = document.getElementById('checkBtn');
+
+    // Проверяем, что все критические элементы найдены
+    if (!statusDiv || !updateBtn || !downloadBtn || !cardCount || !checkBtn) {
+        console.error('Критические элементы не найдены в DOM:', {
+            statusDiv: !!statusDiv,
+            updateBtn: !!updateBtn,
+            downloadBtn: !!downloadBtn,
+            cardCount: !!cardCount,
+            checkBtn: !!checkBtn
+        });
+        return;
+    }
+
+    // Инициализируем состояние
+    newFiles = [];
+    updateBtn.disabled = true;
+    downloadBtn.disabled = true;
+
+    // Пытаемся загрузить кэшированные данные
+    const cachedData = getCachedCheck();
+
+    if (cachedData) {
+        // Если кэш есть — отображаем сохранённые данные
+        updateStatus('Последняя проверка: ' + cachedData.timestamp, 'success');
+        currentFileList = cachedData.data.currentList;
+        displayFileList(currentFileList);
+        updateCardCount(currentFileList.length);
+    } else {
+        // Если кэша нет — показываем инструкцию
+        cardCount.textContent = 'В библиотеке: данные загружаются...';
+        updateStatus('Нажмите кнопку «Проверить обновления».', 'success');
+    }
+
+    // Добавляем обработчики событий
+    checkBtn.addEventListener('click', checkUpdates);
+    updateBtn.addEventListener('click', updateLibrary);
+    downloadBtn.addEventListener('click', downloadFileList);
 }
-document.addEventListener("DOMContentLoaded", initApp)
+
+// Запускаем инициализацию после загрузки DOM
+document.addEventListener('DOMContentLoaded', initApp);

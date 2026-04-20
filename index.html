@@ -17,6 +17,16 @@
   </head>
 
   <body>
+  	    <div>
+		<button popovertarget="dict-popover">Обслуживание словаря</button>
+      <div id="dict-popover" popover>
+        <h4>Обслуживание словаря</h4>
+        <p>Обновите словарные записи прямо сейчас.</p>
+        <a href="mnt-dict.html" class="popover-link">Перейти</a>
+      </div>
+	  </div>
+  
+  
     <header>
       <logo>
         <svg width="250" height="50">
@@ -36,11 +46,17 @@
         </svg>
       </logo>
 
+
+
+
       <nav>
         <a href="#" onclick="window.history.back()">← Назад</a> |
         <a href="/">🏠 Главная</a>
       </nav>
+
     </header>
+	
+
 
     <h1>Шпаргалка: HTML и CSS</h1>
 
@@ -72,12 +88,7 @@
     </div>
 
     <footer>
-      <button popovertarget="dict-popover">Обслуживание словаря</button>
-      <div id="dict-popover" popover>
-        <h4>Обслуживание словаря</h4>
-        <p>Обновите словарные записи прямо сейчас.</p>
-        <a href="mnt-dict.html" class="popover-link">Перейти</a>
-      </div>
+   
     </footer>
 
     <script src="script.js"></script>
