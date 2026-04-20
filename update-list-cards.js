@@ -1,6 +1,28 @@
 let currentFileList = [],
   newFiles = [],
   CACHE_KEY = "termCatalogLastCheck"
+  
+  // Функция экранирования HTML‑символов
+const chars = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',   // Одинарная кавычка
+  '/': '&#x2F;',  // Косая черта (важно для закрытия тегов)
+  '`': '&#96;'    // Обратная кавычка (актуально для JS шаблонов)
+};
+
+// Функция декодирования HTML сущностей
+function decodeHtml(encodedHtml) {
+  if (typeof encodedHtml !== 'string') return encodedHtml;
+
+  const parser = new DOMParser();
+  const decoded = parser.parseFromString(`<div>${encodedHtml}</div>`, 'text/html');
+  return decoded.body.innerHTML;
+}
+
+
 function cacheLastCheck(t) {
   localStorage.setItem(
     CACHE_KEY,

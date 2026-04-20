@@ -1,17 +1,18 @@
 {
     "word": ":target",
-    "definition": "псевдокласс CSS, применяющий стили к элементу, идентификатор которого указан в URL после символа #",
+    "definition": "Псевдокласс CSS, который выбирает элемент, чей ID совпадает с фрагментом в адресной строке (после #).",
     "translation": "цель; от англ. target — «цель, мишень»",
     "categories": [
-        "CSS"
+        "CSS",
+        "Selectors"
     ],
     "related": [
         ":hover",
         ":focus",
-        "якорные ссылки"
+        "fragment identifier"
     ],
-    "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/:target",
-    "fullDescription": "Стиль элемента, указанного в URL как якорь",
+    "reference": "https://mozilla.org",
+    "fullDescription": "Используется для создания вкладок, модальных окон или подсветки разделов на чистом CSS. Для ID со спецсимволами (например, id='my:id') требует экранирования в селекторе: #my\\:id:target",
     "letter": "T",
     "name-file": "target.json"
 }

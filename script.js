@@ -13,7 +13,7 @@ function escapeHtml(unsafe) {
     .replace(/'/g, '&#039;');
 }
 
-// Функция декодирования HTML‑сущностей
+// Функция декодирования HTML сущностей
 function decodeHtml(encodedHtml) {
   if (typeof encodedHtml !== 'string') return encodedHtml;
 
