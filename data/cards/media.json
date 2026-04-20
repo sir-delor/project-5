@@ -1,0 +1,11 @@
+{
+  "word": "media, @media",
+  "definition": "CSS‑директива для создания медиа‑запросов, которая применяет стили в зависимости от характеристик устройства или браузера",
+  "translation": "медиа; от англ. media — «среда, носитель»",
+  "categories": ["CSS"],
+  "related": "breakpoints, responsive design, viewport",
+  "reference": "https://developer.mozilla.org/ru/docs/Web/CSS/Media_Queries/Using_media_queries",
+  "fullDescription": "Условное применение стилей по параметрам устройства",
+  "letter": "M",
+  "name-file": "media.json"
+}

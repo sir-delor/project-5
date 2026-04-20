@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Словарная статья: тег &lt;button&gt; v0.0</title>
+
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+        <link
+      rel="icon"
+      href="http://frontendglossary.local/projects/project-5/favicon.ico"
+      type="image/x-icon"
+    />
+    
+  </head>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+
+
+      
+<main>
+  <h1>Словарная статья: @media v0.0</h1>
+  <p>
+    Словарная статья в онлайн‑словаре по HTML и CSS
+  </p>
+</header>
+
+<main>
+  <section class="term-section">
+    <h2>Определение</h2>
+    <p>
+      <strong>@media</strong> — CSS‑директива для реализации адаптивного дизайна. Позволяет применять стили в зависимости от характеристик устройства или области просмотра (ширина, высота, ориентация, разрешение и т. д.).
+    </p>
+  </section>
+
+  <section class="term-section">
+    <h2>Синтаксис</h2>
+    <div class="code-block">
+      <pre>@media <em>условие</em> {
+  /* CSS‑правила */
+}</pre>
+    </div>
+  </section>
+
+  <section class="term-section">
+    <h2>Пример использования</h2>
+    <p>Адаптация макета для мобильных устройств:</p>
+
+    <div class="example-card">
+      <h3>Мобильная версия сайта</h3>
+      <p>На экранах шириной до 768 px меню сворачивается в «бургер», а отступы уменьшаются.</p>
+    </div>
+
+    <h3>Код примера:</h3>
+    <div class="code-block">
+      <pre>@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  .burger-menu {
+    display: block;
+  }
+  body {
+    padding: 10px;
+  }
+}</pre>
+    </div>
+  </section>
+
+  <section class="term-section">
+    <h2>Основные условия (медиа‑функции)</h2>
+    <table border="1" width="100%">
+      <thead>
+        <tr>
+          <th>Условие</th>
+          <th>Назначение</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>max-width</code></td>
+          <td>Применяется, если ширина области просмотра ≤ указанного значения</td>
+          <td><code>(max-width: 600px)</code></td>
+        </tr>
+        <tr>
+          <td><code>min-width</code></td>
+          <td>Применяется, если ширина области просмотра ≥ указанного значения</td>
+          <td><code>(min-width: 1200px)</code></td>
+        </tr>
+        <tr>
+          <td><code>orientation</code></td>
+          <td>Ориентация экрана: <code>portrait</code> или <code>landscape</code></td>
+          <td><code>(orientation: portrait)</code></td>
+        </tr>
+        <tr>
+          <td><code>resolution</code></td>
+          <td>Разрешение экрана (dpi, dppx)</td>
+          <td><code>(resolution: 300dpi)</code></td>
+        </tr>
+        <tr>
+          <td><code>prefers-color-scheme</code></td>
+          <td>Предпочитаемая цветовая схема пользователя (<code>dark</code>/<code>light</code>)</td>
+          <td><code>(prefers-color-scheme: dark)</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="term-section">
+    <h2>Логические операторы</h2>
+    <ul>
+      <li><code>and</code> — объединяет условия (все должны быть истинными).</li>
+      <li><code>not</code> — инвертирует условие.</li>
+      <li><code>,</code> (запятая) — работает как «ИЛИ»: достаточно выполнения одного условия.</li>
+    </ul>
+    <div class="code-block">
+      <pre>/* Ширина от 600 до 1200 px И портретная ориентация */
+@media (min-width: 600px) and (max-width: 1200px) and (orientation: portrait) { ... }
+
+/* Тёмная тема ИЛИ экран с высоким разрешением */
+@media (prefers-color-scheme: dark), (resolution: 2dppx) { ... }</pre>
+    </div>
+  </section>
+
+  <section class="term-section">
+    <h2>Связанные термины</h2>
+    <div class="related-terms">
+      <span class="tag">Адаптивный дизайн</span>
+      <span class="tag">Брейкпоинты (breakpoints)</span>
+      <span class="tag">Flexbox</span>
+      <span class="tag">Grid Layout</span>
+      <span class="tag">Viewport</span>
+      <span class="tag">Mobile‑first</span>
+    </div>
+  </section>
+
+  <section class="term-section">
+    <h2>Примечания</h2>
+    <ul>
+      <li>
+        Располагайте медиа‑запросы после основных стилей, чтобы избежать конфликтов переопределения.
+      </li>
+      <li>
+        Используйте <code>em</code> вместо <code>px</code> для относительных брейкпоинтов — это улучшает масштабирование.
+      </li>
+      <li>
+        Тестируйте адаптивность в инструментах разработчика браузера (например, в Chrome DevTools).
+      </li>
+      <li>
+        Для печати используйте <code>@media print</code>, чтобы скрыть навигацию, рекламу и т. п.
+      </li>
+      <li>
+        Избегайте избыточных медиа‑запросов: оптимизируйте код, объединяя схожие условия.
+      </li>
+    </ul>
+  </section>
+</main>
+
+
+
+
+
+      <div id="footer"></div>
+    </div>
+
+    <button
+      type="button"
+      id="scrollTopBtn"
+      aria-label="Вернуться к началу страницы"
+      class="scroll-top-btn"
+    >
+      ↑
+    </button>
+
+    <script src="script/script.js"></script>
+
+    <script src="js/header-footer-loader.js"></script>
+  </body>
+</html>
