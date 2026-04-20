@@ -67,12 +67,10 @@ function updateCardCount(count) {
     }
 }
 
-//  Получение списка файлов из папки data/cards
-//Вариант . Использование статического JSON‑файла со списком
-//Без запуска PHP скриптов- вручную или через серверный скрипт генерировать файл file-list.json при обновлении папки:
+// Получение списка файлов из папки data/cards
 async function getCardFiles() {
     try {
-        const response = await fetch('data/cards/file-list.json', {
+        const response = await fetch('data/cards/list-files.json', { // ИЗМЕНЕНО: используем единый файл
             headers: {
                 'Cache-Control': 'no-cache, no-store, must-revalidate'
             }
@@ -87,25 +85,9 @@ async function getCardFiles() {
     }
 }
 
-
-
 // Загрузка текущего списка из list-files.json
 async function loadCurrentList() {
-    try {
-        const response = await fetch('data/cards/list-files.json', {
-            headers: {
-                'Cache-Control': 'no-cache, no-store, must-revalidate'
-            }
-        });
-        if (!response.ok) throw new Error('Не удалось загрузить текущий список');
-
-        currentFileList = await response.json();
-        return currentFileList;
-    } catch (error) {
-        logAction('Ошибка', 'Загрузка текущего списка: ' + error.message);
-        currentFileList = [];
-        return [];
-    }
+    return getCardFiles(); // ИЗМЕНЕНО: теперь используем одну функцию для обоих случаев
 }
 
 // Сравнение списков и поиск новых файлов
@@ -118,14 +100,12 @@ function findNewFiles(cardFiles, currentList) {
     return newFiles;
 }
 
-// Обновление списка в файле list-files.json
 // Функция для обновления file-list.json на сервере
 async function updateFileListOnServer() {
     try {
         const response = await fetch('update-file-list.php', {
-            method: 'GET' // Используем GET, так как скрипт не требует передачи данных
+            method: 'GET'
         });
-
 
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -139,7 +119,6 @@ async function updateFileListOnServer() {
         throw error;
     }
 }
-
 
 // Отображение списка файлов
 function displayFileList(fileList) {
@@ -210,7 +189,6 @@ async function checkUpdates() {
         console.error('Ошибка:', error);
     }
 }
-
 // Обновление библиотеки
 async function updateLibrary() {
     const statusDiv = document.getElementById('status');
@@ -239,34 +217,25 @@ async function updateLibrary() {
 
         // Обновляем кэш с актуальными данными
         cacheLastCheck({ currentList: updatedList });
+
+        // ИЗМЕНЕНО: добавляем вызов обновления file-list.json
+        try {
+            await updateFileListOnServer();
+            updateStatus(
+                `Добавлено ${updatedList.length} терминов. Список файлов обновлён.`,
+                'success'
+            );
+        } catch (updateError) {
+            console.warn('Не удалось обновить file-list.json:', updateError.message);
+            // Не блокируем основной процесс, если обновление списка файлов не удалось
+            updateStatus(
+                `Добавлено ${updatedList.length} терминов, но список файлов не обновился. Проверьте настройки сервера.`,
+                'warning'
+            );
+        }
     } catch (error) {
         updateStatus('Ошибка обновления библиотеки. Попробуйте снова.', 'error');
         console.error('Ошибка обновления:', error);
         updateBtn.disabled = false;
     }
-}
-
-// Функция скачивания списка файлов
-function downloadFileList() {
-    let fileListToDownload = currentFileList;
-
-    // Если есть новые файлы и библиотека ещё не обновлена, скачиваем старый список
-    if (newFiles.length > 0 && document.getElementById('updateBtn').disabled === false) {
-        fileListToDownload = [...currentFileList];
-    }
-
-    const jsonString = JSON.stringify(fileListToDownload, null, 2);
-    const blob = new Blob([jsonString], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'list-files-updated.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-
-    updateStatus('Список скачан', 'success');
-    logAction('Скачивание', 'Список файлов сохранён как list-files-updated.json');
 }
