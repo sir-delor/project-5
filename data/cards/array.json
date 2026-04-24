@@ -1,0 +1,11 @@
+{
+  "word": "array",
+  "definition": "упорядоченная структура данных для хранения набора элементов одного или разных типов, доступ к которым осуществляется по индексу (номеру позиции)",
+  "translation": "массив; от англ. array — «упорядоченное расположение, набор»",
+  "categories": ["JavaScript", "программирование", "структуры данных"],
+  "related": ["индекс", "элемент массива", "цикл for", "метод map()", "объект"],
+  "reference": "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array",
+  "fullDescription": "Упорядоченный список элементов с доступом по индексу",
+  "letter": "A",
+  "name-file": "array.json"
+}

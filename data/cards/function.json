@@ -1,0 +1,12 @@
+
+{
+  "word": "function",
+  "definition": "блок кода, который выполняет определённое действие и может быть вызван многократно; может принимать параметры и возвращать значение",
+  "translation": "функция; от англ. function — «действие, работа, функция»",
+  "categories": ["JavaScript", "программирование"],
+  "related": ["параметр", "возвращаемое значение", "область видимости", "рекурсия"],
+  "reference": "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions",
+  "fullDescription": "Переиспользуемый блок кода для выполнения действий",
+  "letter": "F",
+  "name-file": "function.json"
+}

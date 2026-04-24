@@ -190,6 +190,12 @@ text {
   font-style: italic;
 }
 
+/* CSS для placeholder  */
+.lazy-load-placeholder {
+    height: 100px; /* Высота placeholder'а */
+    visibility: hidden;
+}
+
 /* Сообщение об ошибке */
 .error-message {
   text-align: center;

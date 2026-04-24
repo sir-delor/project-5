@@ -1,29 +1,34 @@
+
+
 // Глобальные переменные
 let termsData = [];
 let allTerms = [];
 
 // Функция экранирования HTML‑символов
 function escapeHtml(unsafe) {
-  if (typeof unsafe !== 'string') return unsafe;
+  if (typeof unsafe !== "string") return unsafe;
   return unsafe
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 // Функция декодирования HTML сущностей
 function decodeHtml(encodedHtml) {
-  if (typeof encodedHtml !== 'string') return encodedHtml;
+  if (typeof encodedHtml !== "string") return encodedHtml;
 
   const parser = new DOMParser();
-  const decoded = parser.parseFromString(`<div>${encodedHtml}</div>`, 'text/html');
+  const decoded = parser.parseFromString(
+    `<div>${encodedHtml}</div>`,
+    "text/html",
+  );
   return decoded.body.innerHTML;
 }
 
 // Функция автоматического обнаружения файлов в папке data
-async function discoverFilesInFolder(folderPath = 'data') {
+async function discoverFilesInFolder(folderPath = "data") {
   try {
     // Попытка получить список файлов через специальный endpoint
     const response = await fetch(`${folderPath}/list-files.json`);
@@ -36,29 +41,36 @@ async function discoverFilesInFolder(folderPath = 'data') {
       } else if (fileList && Array.isArray(fileList.files)) {
         return fileList.files;
       } else {
-        throw new Error('Неверный формат списка файлов');
+        throw new Error("Неверный формат списка файлов");
       }
     } else {
       // Fallback: стандартный набор файлов, если endpoint недоступен
-      console.warn('Не удалось получить список файлов, используем стандартный набор');
-      return ['strong.json', 'div.json', 'p.json'];
+      console.warn(
+        "Не удалось получить список файлов, используем стандартный набор",
+      );
+      return ["strong.json", "div.json", "p.json"];
     }
   } catch (error) {
-    console.error('Ошибка при обнаружении файлов:', error);
+    console.error("Ошибка при обнаружении файлов:", error);
     // Fallback на стандартный набор файлов
-    return ['strong.json', 'div.json', 'p.json', 'a.json', 'img.json', 'button.json'];
+    return [
+      "data/cards/div.json",
+      "data/cards/a.json",
+      "data/cards/img.json",
+      "data/cards/button.json",
+    ];
   }
 }
 
 // Функция загрузки всех JSON файлов из папки data/cards с автоматическим обнаружением
 async function loadTermsFromFolder() {
-  const folderPath = 'data/cards';
+  const folderPath = "data/cards";
   const termFiles = await discoverFilesInFolder(folderPath);
   const terms = [];
-  const indicator = document.getElementById('terms-indicator');
+  const indicator = document.getElementById("terms-indicator");
 
   // Обновляем индикатор: начинаем загрузку
-  indicator.textContent = 'Загрузка терминов...';
+  indicator.textContent = "Загрузка терминов...";
 
   let loadedFilesCount = 0;
 
@@ -70,10 +82,12 @@ async function loadTermsFromFolder() {
       }
       const termData = await response.json();
 
-            // === КОД ДЛЯ ОТЛАДКИ ===
+      // === КОД ДЛЯ ОТЛАДКИ ===
       console.log(`Загружен файл ${fileName}:`, termData);
       if (!Array.isArray(termData.categories)) {
-        console.warn(`В файле ${fileName} поле "categories" отсутствует или не является массивом`);
+        console.warn(
+          `В файле ${fileName} поле "categories" отсутствует или не является массивом`,
+        );
       }
       // === КОНЕЦ ОТЛАДКИ ===
 
@@ -102,7 +116,6 @@ async function loadTermsFromFolder() {
   return terms;
 }
 
-
 // Функция поиска терминов по запросу (с учётом регистра и части слова)
 function searchTerms(query, caseSensitive = false) {
   if (!query.trim()) {
@@ -111,68 +124,79 @@ function searchTerms(query, caseSensitive = false) {
 
   const searchQuery = caseSensitive ? query.trim() : query.toLowerCase().trim();
 
-  return allTerms.filter(term => {
+  return allTerms.filter((term) => {
     const word = caseSensitive ? term.word : term.word.toLowerCase();
-    const definition = caseSensitive ? term.definition : term.definition.toLowerCase();
-    const translation = caseSensitive ? term.translation : term.translation.toLowerCase();
-    const categories = term.categories.map(cat =>
-      caseSensitive ? cat : cat.toLowerCase()
+    const definition = caseSensitive
+      ? term.definition
+      : term.definition.toLowerCase();
+    const translation = caseSensitive
+      ? term.translation
+      : term.translation.toLowerCase();
+    const categories = term.categories.map((cat) =>
+      caseSensitive ? cat : cat.toLowerCase(),
     );
 
     return (
       word.includes(searchQuery) ||
       definition.includes(searchQuery) ||
       translation.includes(searchQuery) ||
-      categories.some(cat => cat.includes(searchQuery))
+      categories.some((cat) => cat.includes(searchQuery))
     );
   });
 }
-
 
 // Функция подсветки совпадений в тексте
 function highlightText(text, query, caseSensitive = false) {
   if (!query.trim()) return text;
 
   // Экранируем все специальные символы регулярного выражения
-  const escapedQuery = query.replace(/[.*+?^${}()|[\\]/g, '\\$&');
+  const escapedQuery = query.replace(/[.*+?^${}()|[\\]/g, "\\$&");
 
-  const flags = caseSensitive ? 'g' : 'gi';
+  const flags = caseSensitive ? "g" : "gi";
   const regex = new RegExp(`(${escapedQuery})`, flags);
 
-  return text.replace(regex, '<mark>$1</mark>');
+  return text.replace(regex, "<mark>$1</mark>");
 }
 
-
 // Обновлённая функция создания карточки с подсветкой и защитой от ошибок
-function createTermCard(term, searchQuery = '', caseSensitive = false) {
-  const card = document.createElement('div');
-  card.className = 'term-card';
+function createTermCard(term, searchQuery = "", caseSensitive = false) {
+  const card = document.createElement("div");
+  card.className = "term-card";
 
   // Безопасное получение слова (с экранированием)
-  const word = term.word ? term.word.replace(/[<>]/g, '') : 'Неизвестно';
+  const word = term.word ? term.word.replace(/[<>]/g, "") : "Неизвестно";
   card.dataset.term = word.toLowerCase();
 
   // Применяем подсветку к тексту, если есть запрос
   const highlightedWord = highlightText(word, searchQuery, caseSensitive);
-  const definition = term.definition || 'Описание отсутствует';
-  const highlightedDefinition = highlightText(definition, searchQuery, caseSensitive);
-  const translation = term.translation || 'Перевод отсутствует';
-  const highlightedTranslation = highlightText(translation, searchQuery, caseSensitive);
+  const definition = term.definition || "Описание отсутствует";
+  const highlightedDefinition = highlightText(
+    definition,
+    searchQuery,
+    caseSensitive,
+  );
+  const translation = term.translation || "Перевод отсутствует";
+  const highlightedTranslation = highlightText(
+    translation,
+    searchQuery,
+    caseSensitive,
+  );
 
   // Безопасная обработка категорий: проверяем, что это массив
-  let categoriesHtml = '';
+  let categoriesHtml = "";
   if (Array.isArray(term.categories)) {
     categoriesHtml = term.categories
-      .map(cat => `<span class="category">${cat}</span>`)
-      .join('');
+      .map((cat) => `<span class="category">${cat}</span>`)
+      .join("");
   } else {
     // Если categories нет или не массив — показываем заглушку или пропускаем
-    categoriesHtml = '<span class="category category-missing">Категории не указаны</span>';
+    categoriesHtml =
+      '<span class="category category-missing">Категории не указаны</span>';
   }
 
   // Безопасное получение ссылки (с fallback)
-  const reference = term.reference || '#';
-  const linkText = term.reference ? 'Справка на MDN' : 'Ссылка отсутствует';
+  const reference = term.reference || "#";
+  const linkText = term.reference ? "Справка на MDN" : "Ссылка отсутствует";
 
   card.innerHTML = `
     <h3>${highlightedWord}</h3>
@@ -180,7 +204,8 @@ function createTermCard(term, searchQuery = '', caseSensitive = false) {
     <div class="term-info">
       ${categoriesHtml}
     </div>
-    <p class="translation"><strong>Перевод:</strong> ${highlightedTranslation}</p>
+    <p><strong>Перевод:</strong></p>
+    <p class="translation"> ${highlightedTranslation}</p>
     <a href="${reference}"
        class="doc-link" target="_blank">${linkText}</a>
   `;
@@ -188,44 +213,51 @@ function createTermCard(term, searchQuery = '', caseSensitive = false) {
   return card;
 }
 
-
-
-// Функция обновления отображения карточек с учётом поиска
 function updateDisplayedTerms(searchQuery, caseSensitive = false) {
-  const filteredTerms = searchTerms(searchQuery, caseSensitive);
-  const container = document.getElementById('termsContainer');
+    const filteredTerms = searchTerms(searchQuery, caseSensitive);
+    const container = document.getElementById("termsContainer");
+    const resultsCountElement = document.getElementById('resultsCount');
 
-  if (filteredTerms.length === 0) {
-    container.innerHTML = `
-      <div class="no-results">
-        <h3>Ничего не найдено</h3>
-        <p>Попробуйте другой запрос или очистите поиск.</p>
-      </div>
-    `;
-    return;
-  }
+    // Сначала проверяем наличие результатов
+    if (filteredTerms.length === 0) {
+        container.innerHTML = `
+            <div class="no-results">
+                <h3>Ничего не найдено</h3>
+                <p>Попробуйте другой запрос или очистите поиск.</p>
+            </div>
+        `;
+        // Очищаем счетчик при отсутствии результатов
+        resultsCountElement.textContent = '';
+        return;
+    }
 
-  container.innerHTML = ''; // Очищаем контейнер
+    // Обновляем счетчик найденных терминов
+    resultsCountElement.textContent = `Найдено ${filteredTerms.length} терминов`;
 
-  filteredTerms.forEach(term => {
-    const card = createTermCard(term, searchQuery, caseSensitive); // Передаём запрос и флаг учёта регистра
-    container.appendChild(card);
-  });
-
-  // Переподключаем обработчики кликов для новых карточек
-  addCardClickHandlers();
+    // Очищаем контейнер для новых результатов
+    container.innerHTML = "";
+    
+    // Создаем и добавляем карточки
+    filteredTerms.forEach((term) => {
+        const card = createTermCard(term, searchQuery, caseSensitive);
+        container.appendChild(card);
+    });
+    
+    // Обновляем обработчики кликов
+    addCardClickHandlers();
 }
+
 
 // Обработчики для поиска
 function setupSearchHandlers() {
-  const searchInput = document.getElementById('searchInput');
-  const clearButton = document.getElementById('clearSearch');
-  const caseSensitiveCheckbox = document.getElementById('caseSensitive');
+  const searchInput = document.getElementById("searchInput");
+  const clearButton = document.getElementById("clearSearch");
+  const caseSensitiveCheckbox = document.getElementById("caseSensitive");
 
   let searchTimeout;
 
   // Поиск при вводе (с задержкой для производительности)
-  searchInput.addEventListener('input', function() {
+  searchInput.addEventListener("input", function () {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
       updateDisplayedTerms(this.value, caseSensitiveCheckbox?.checked || false);
@@ -233,45 +265,44 @@ function setupSearchHandlers() {
   });
 
   // Очистка поиска
-  clearButton.addEventListener('click', function() {
-    searchInput.value = '';
+  clearButton.addEventListener("click", function () {
+    searchInput.value = "";
     if (caseSensitiveCheckbox) caseSensitiveCheckbox.checked = false;
-    updateDisplayedTerms('');
+    updateDisplayedTerms("");
   });
 
   // Поиск по Enter
-  searchInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
+  searchInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
       updateDisplayedTerms(this.value, caseSensitiveCheckbox?.checked || false);
     }
   });
 
   // Обработка изменения флага учёта регистра
   if (caseSensitiveCheckbox) {
-    caseSensitiveCheckbox.addEventListener('change', function() {
+    caseSensitiveCheckbox.addEventListener("change", function () {
       updateDisplayedTerms(searchInput.value, this.checked);
     });
   }
 }
 
-
 function addCardClickHandlers() {
-  const cards = document.querySelectorAll('.term-card');
-  const modal = document.getElementById('termModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalContent = document.getElementById('modalContent');
-  const closeBtn = document.querySelector('.close');
+  const cards = document.querySelectorAll(".term-card");
+  const modal = document.getElementById("termModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalContent = document.getElementById("modalContent");
+  const closeBtn = document.querySelector(".close");
 
-  cards.forEach(card => {
-    card.addEventListener('click', function() {
+  cards.forEach((card) => {
+    card.addEventListener("click", function () {
       const termKey = this.dataset.term;
-      const term = termsData.find(t =>
-        t.word.replace(/[<>]/g, '').toLowerCase() === termKey
+      const term = termsData.find(
+        (t) => t.word.replace(/[<>]/g, "").toLowerCase() === termKey,
       );
 
       if (term) {
         // Если fullDescription содержит ссылку на страницу, переходим на неё
-        if (term.fullDescription && term.fullDescription.includes('.html')) {
+        if (term.fullDescription && term.fullDescription.includes(".html")) {
           // Извлекаем путь из fullDescription (предполагаем, что это просто путь к файлу)
           const pagePath = term.fullDescription.trim();
           window.location.href = pagePath;
@@ -284,31 +315,30 @@ function addCardClickHandlers() {
   });
 
   // Закрытие модального окна по крестику
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
   });
 
   // Закрытие при клике вне окна
-  window.addEventListener('click', (e) => {
+  window.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.style.display = 'none';
+      modal.style.display = "none";
     }
   });
 
   // --- ДОБАВЛЕННЫЙ КОД: закрытие по клавише Esc ---
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && modal.style.display === 'block') {
-      modal.style.display = 'none';
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && modal.style.display === "block") {
+      modal.style.display = "none";
     }
   });
   // --- КОНЕЦ ДОБАВЛЕННОГО КОДА ---
 }
 
-
 function showNoInfoModal(term) {
-  const modal = document.getElementById('termModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalContent = document.getElementById('modalContent');
+  const modal = document.getElementById("termModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalContent = document.getElementById("modalContent");
 
   modalTitle.innerHTML = term.word;
   modalContent.innerHTML = `
@@ -316,7 +346,7 @@ function showNoInfoModal(term) {
               <p>На сайте нет расширенной информации по этому термину.</p>
               <p>Это базовый уровень. Чтобы углубить знания, изучите официальную документацию: </p>
               <div class="trusted-sources">
-                <a href="${term.reference || 'https://developer.mozilla.org'}"
+                <a href="${term.reference || "https://developer.mozilla.org"}"
                    target="_blank"
                    class="mdn-link">
                   📘 Открыть на MDN
@@ -335,13 +365,12 @@ function showNoInfoModal(term) {
             </div>
   `;
 
-  modal.style.display = 'block';
+  modal.style.display = "block";
 }
-
 
 // Функция отображения ошибки
 function showError(message) {
-  const container = document.getElementById('termsContainer');
+  const container = document.getElementById("termsContainer");
   container.innerHTML = `
     <div class="error-message">
       <h3>Ошибка загрузки</h3>
@@ -351,22 +380,19 @@ function showError(message) {
   `;
 }
 
-
-
 // Основная функция инициализации приложения
 async function initApp() {
   try {
     // Показываем индикатор загрузки
-    const container = document.getElementById('termsContainer');
+    const container = document.getElementById("termsContainer");
     container.innerHTML = '<div class="loading">Загрузка карточек...</div>';
 
     // Загружаем данные терминов из папки data
     termsData = await loadTermsFromFolder();
     allTerms = [...termsData]; // Сохраняем все термины для поиска
 
-
     // Удаляем индикатор загрузки
-    const loadingElement = container.querySelector('.loading');
+    const loadingElement = container.querySelector(".loading");
     if (loadingElement) {
       loadingElement.remove();
     }
@@ -374,23 +400,27 @@ async function initApp() {
     // Отображаем все карточки изначально
     displayTerms(termsData);
 
-
     // Настраиваем обработчики поиска
     setupSearchHandlers();
 
-    console.log('Словарь терминов успешно загружен:', termsData.length, 'карточек');
+    console.log(
+      "Словарь терминов успешно загружен:",
+      termsData.length,
+      "карточек",
+    );
   } catch (error) {
-    console.error('Ошибка при загрузке словаря:', error);
-    showError('Не удалось загрузить словарь терминов. Проверьте подключение к сети и структуру папки data.');
+    console.error("Ошибка при загрузке словаря:", error);
+    showError(
+      "Не удалось загрузить словарь терминов. Проверьте подключение к сети и структуру папки data.",
+    );
   }
 }
 
-
 // Функция отображения всех карточек
 function displayTerms(terms) {
-  const container = document.getElementById('termsContainer');
+  const container = document.getElementById("termsContainer");
 
-  terms.forEach(term => {
+  terms.forEach((term) => {
     const card = createTermCard(term);
     container.appendChild(card);
   });
@@ -399,7 +429,5 @@ function displayTerms(terms) {
   addCardClickHandlers();
 }
 
-
-
 // Запускаем приложение после загрузки DOM
-document.addEventListener('DOMContentLoaded', initApp);
+document.addEventListener("DOMContentLoaded", initApp);
